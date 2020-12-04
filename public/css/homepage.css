@@ -1,0 +1,62 @@
+body{
+	min-height: 100vh;
+	background-color: #c6fced;
+}
+#container{
+	text-align: center;
+	padding-top: 2em;
+}
+#logo{
+	width: 15%;
+	height: 15%;
+	border-radius: 20px;
+}
+#debrief-heading{
+	font-family:  cursive;
+}
+.debrief-content{
+	padding: 0 3em;
+	font-family: cursive;
+}
+#coa{
+	margin: 2% 35%;
+}
+#btn-h{
+	float: left;
+	background-color: #b8de6f;
+	border-style: none;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 1.1em;
+	padding-top: 5px;
+	box-shadow: 10px 10px 5px 1px #aaaaaa;
+}
+#btn-h:focus{
+	outline: none;
+	
+}
+#btn-h:hover{
+	transform: scale(1.5);
+}
+#btn-u{
+	float: right;
+	font-size: 1.1em;
+	background-color: #28abb9;
+	border-style: none;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 1.1em;
+	padding-top: 5px;
+	box-shadow: 10px 10px 5px 1px #aaaaaa;
+}
+#btn-u:focus{
+	outline: none;
+	
+}
+#btn-u:hover{
+	transform: scale(1.5);
+}
+.who{
+	font-family: cursive;
+	font-size: 2em;
+}
