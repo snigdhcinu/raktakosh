@@ -1,0 +1,138 @@
+body{
+	min-height: 100vh;
+	background-color: #adce74;
+	font-family: cursive;
+}
+h1{
+	text-align: center;
+	padding-top: 3rem;
+}
+hr{
+	border-color: #fff;
+}
+#login{
+	float: right;
+	margin-right: 2rem;
+	margin-top: -5rem;
+	cursor: pointer;
+}
+#login button{
+	background-color: #fff;
+	color: #000;
+	font-size: 1.1rem;
+	border-radius: 10px;
+	cursor: zoom-in;
+}
+#login button:focus{
+	outline: none;
+}
+#login button:hover{
+	background-color: transparent;
+	transform: scale(1.5);
+}
+#container{
+	min-height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+#form-body{
+	display: grid;
+	min-height: 100%;
+	min-width: 100%;
+	margin-top: 1rem;
+	background-color: #fff;
+	border-radius: 30px;
+	grid-template-rows: 20% 12% 12% 12% 12% ;
+	grid-template-columns: 40% 20% 40%;
+	grid-row-gap: 2em;
+	justify-items:center;
+	grid-template-areas: 
+	". image ."
+	"name . id"
+	"address1 . ."
+	"city . state"
+	"phno . .";
+	padding-bottom: 2rem;
+}
+input{
+	height: 1.3rem;
+}
+#img{
+	grid-area: image;
+	width: 80%;
+	justify-self:center;
+}
+#name{
+	grid-area: name;
+	justify-self:end;
+
+}
+#name:focus{
+	padding: 10px;
+	outline: none;
+	border-radius: 10px;
+}
+#id{
+	grid-area: id;
+	justify-self:start;
+}
+#id:focus{
+	padding: 10px;
+	outline: none;
+	border-radius: 10px;
+}
+#address{
+	grid-area: address1;
+	justify-self:end;
+}
+#address:focus{
+	padding: 10px;
+	outline: none;
+	border-radius: 10px;
+}
+#city{
+	grid-area: city;
+	justify-self:end;
+}
+#city:focus{
+	padding: 10px;
+	outline: none;
+	border-radius: 10px;
+}
+#state{
+	grid-area: state;
+	justify-self:start;
+}
+#state:focus{
+	padding: 10px;
+	outline: none;
+	border-radius: 10px;
+}
+#phno{
+	grid-area: phno;
+	justify-self:end;
+}
+#phno:focus{
+	padding: 10px;
+	outline: none;
+	border-radius: 10px;
+}
+#btn{
+	font-size: 1.5rem;
+	width: 50%;
+	border-radius: 20px;
+	cursor: pointer;
+	margin-left: 25%;
+	margin-top: 2rem;
+}
+#btn:hover{
+	font-size: 2rem;
+	height: 4rem;
+	background-color: transparent;
+}
+#btn:focus{
+	outline: none;
+}

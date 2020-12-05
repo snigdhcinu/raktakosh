@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<link rel="icon" type="image/png" href="/images/favicon.png">
+	<link rel="stylesheet" type="text/css" href="/css/signupRequestee.css">
+</head>
+<body>
+	<h1>Requester Registration<hr width="30%"></h1>
+	<div id="login">Already have an account? <a href="/login"><button>Log In</button></a></div>
+	<div id="container">
+		<form action="/signup/requestee" method="post">
+			<div id="form-body">
+				<img id="img" src="/images/logo.png">
+				<input id="name" type="text" name="name" placeholder="Enter Your Name" required autocomplete="off">
+				<input id="id" type="password" name="pwd" placeholder="Set a Password" required autocomplete="off">
+				<input id="bgrp" class="selector" type="text" name="bgrp" placeholder="Enter your Blood Group" required autocomplete="off" list="bld-grps">
+				<datalist id="bld-grps">
+					<option value="A +ve">
+					<option value="A -ve">	
+					<option value="B +ve">
+					<option value="B -ve">
+					<option value="O +ve">
+					<option value="O -ve">
+					<option value="AB +ve">
+					<option value="AB -ve">
+				</datalist>
+				<input id="address" type="text" name="address" placeholder="Enter the local address" required autocomplete="off">
+				<input id="city" type="text" name="city" placeholder="Enter the your city name" required autocomplete="off">
+				<input id="state" type="text" name="state" placeholder="Enter the state where you reside" required autocomplete="off">
+				<input id="phno" type="number" name="phno" placeholder="Enter Your Personal phone number" required autocomplete="off">
+				<input id="gndr" class="selector" type="text" name="gndr" placeholder="Enter Your Gender" required autocomplete="off" list="gndr-list">
+				<datalist id="gndr-list">
+					<option value="Male">	
+					<option value="Female">
+					<option value="LGBTQ">
+					<option value="Prefer not to say">
+				</datalist>
+			</div>
+			<button id="btn" type="submit">Submit</button>
+		</form>
+	</div>
+
+
+<script type="text/javascript" src="/js/signupRequestee.js"></script>
+</body>
+</html>

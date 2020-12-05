@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<link rel="icon" type="image/png" href="/images/favicon.png">
+	<link rel="stylesheet" type="text/css" href="/css/signupHospital.css">
+</head>
+<body>
+	<h1>Hopital Registration<hr width="30%"></h1>
+	<div id="login">Already have an account? <a href="/login"><button>Log In</button></a></div>
+	<div id="container">
+		<form action="/signup/hospital" method="post">
+			<div id="form-body">
+				<img id="img" src="/images/logo.png">
+				<input id="name" type="text" name="name" placeholder="Enter Hospital Name" required autocomplete="off">
+				<input id="id" type="text" name="id" placeholder="Enter Hospital ID" required autocomplete="off">
+				<input id="address" type="text" name="address" placeholder="Enter the local address" required autocomplete="off">
+				<input id="city" type="text" name="city" placeholder="Enter the city name where the hospital's located at" required autocomplete="off">
+				<input id="state" type="text" name="state" placeholder="Enter the state where hospital's located at" required autocomplete="off">
+				<input id="phno" type="number" name="phno" placeholder="Enter Your Hospital phone number" required autocomplete="off">
+			</div>
+			<button id="btn" type="submit">Submit</button>
+		</form>
+	</div>
+
+
+<script type="text/javascript" src="/js/signupHospital.js"></script>
+</body>
+</html>

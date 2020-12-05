@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Log In</title>
+	<link rel="stylesheet" type="text/css" href="/css/login.css">
+</head>
+<body>
+
+	<div id="container">
+		<form action="/login" method="post">
+			<h1>Login to get started</h1>
+
+			<label>Enter your Name : </label><br>
+			<input type="text" name="name" autocomplete="off" required><br><br>
+
+			<label>Enter your Id or Password : </label><br>
+			<input type="password" name="pwd" autocomplete="off" required><br><br>
+
+			<button id="submit" type="submit">Log In</button>
+			<a href="/"><button id="register">New User</button></a>
+		</form>
+	</div>
+
+
+<script type="text/javascript" src="/js/login.js"></script>
+</body>
+</html>
