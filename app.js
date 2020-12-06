@@ -208,7 +208,13 @@ app.route('/:visitor/home')
 		if(isAuthorizedRequestee == true){	
 			// An authorized Individual
 			// use uid to identify the document.
-			res.send('Welcoming Individual -'+' '+req.params.visitor)
+			// res.send('Welcoming Individual -'+' '+req.params.visitor)
+
+			// let	user = req.params.visitor;
+			User.findById(uid,(err,user) =>{
+				res.render('userDashboard',{result:user})
+			})
+
 		}
 		else{
 			console.log("Sorry couldn't recognize you!!")
@@ -217,18 +223,34 @@ app.route('/:visitor/home')
 		// res.send('this is -'+req.params.visitor+'s page')
 	})
 	.post(function(req,res){
-		
+		// update user request
+		// update gloabl requests	
+		User.findById(uid,(err,user)=>{
+			user.requested.bgreq = req.body.bgreq ;
+			user.requested.units = req.body.units ;
+		})
 	})
 
 app.route('/logout')
 	.get((req,res) =>{
 		isAuthorizedHospital = false;
 		isAuthorizedRequestee = false;
+		res.redirect('/')
 	})
 	.post((req,res) =>{
 
 	})
 
+app.route('/hospital/:hospital')
+	.get((req,res)=>{
+		let hospital = req.params.hospital;
+		// Hospital.findById(uid,(err,hospital) =>{
+			res.render('hospitalDashboard',{result:hospital})
+		// })
+	})
+	.post((req,res) =>{
+
+	})
 
 
 app.listen('8000',(req,res) =>{

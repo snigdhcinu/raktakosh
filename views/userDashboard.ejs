@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= result.name%></title>
+	<link rel="stylesheet" type="text/css" href="/css/userDashboard.css">
+</head>
+<body>
+	<div id="header">
+		<p id="user"><%= result.name%>'s Dashboard</p>
+		<a id="logout" href="/logout"><button>Log Out</button></a>
+	</div>
+	<div id="container">
+		<div id="sidebar"> 
+			<a id="homepage" href="/"><img id="logo" src="/images/favicon.png"></a>
+			<ul id="options">
+				<li class="list-item"><button class="btn">My Profile</button></li>
+				<li class="list-item"><button class="btn">Make Request</button></li>
+			</ul>
+		</div>
+
+		<div class="mainbar" id="user-detail">
+			<p id="name">Name :- <%= result.name%></p>
+			<p id="bgrp">Blood Group :- <%= result.bgrp%></p>
+			<p id="gender">Gender :- <%= result.gndr%></p>
+			<p id="address">Address :- <%= result.address%></p>
+			<p id="city">City :- <%= result.city%></p>
+			<p id="state">State :- <%= result.state%></p>
+		</div>
+
+		<div class="mainbar" id="user-request">
+			<form action="/<%= result%>/home" method='post'>
+				<input type="text" name="bgreq" list="bld-grps" placeholder='Select blood group' required autocomplete="off">
+				<datalist id="bld-grps">
+					<option value="A +ve">
+					<option value="A -ve">	
+					<option value="B +ve">
+					<option value="B -ve">
+					<option value="O +ve">
+					<option value="O -ve">
+					<option value="AB +ve">
+					<option value="AB -ve">
+				</datalist>
+				<input type="numebr" name="units" placeholder="Enter required units" required autocomplete="off"><br><br>
+				<button id="submit" type="submit">Make Request</button>
+			</form>
+		</div>
+	</div>
+
+<script type="text/javascript" src="/js/userDashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+body{
+	min-height: 100vh;
+	/*display: flex;*/
+	/*flex-direction: column;*/
+	background-color: #d0e8f2;
+	font-family: cursive;
+}
+#header{
+	/*margin:-10px;*/
+	display: grid;
+	grid-template-columns: 50% 50% ;
+	/*grid-template-rows:100%;*/
+
+}
+#user{
+	justify-self:start;
+	margin-left: 3rem; 
+	font-size: 1.2rem;
+}
+#user:hover{
+	cursor: zoom-in;
+	transition:background-color 1s ease, color 1s ease;
+	background-color: #70adb5;
+	color: #fff;
+	transform: scale(1.5);
+	padding: 5px 15px;
+	border-radius: 10px;
+}
+#logout{
+	justify-self:end;
+	align-self: center;
+	margin-right: 3rem;
+}
+#logout button{
+	background-color: #fff;
+	padding: 5px 10px;
+	border-style: solid;
+	border-radius: 10px;
+}
+#logout button:hover{
+	cursor: pointer;
+	transform: scale(1.5);
+}
+#logout button:focus{
+	outline: none;
+}
+#container{
+	display: grid;
+	height: 100%;
+	grid-template-columns: 25% 75%;
+	grid-template-rows:100%;
+}
+
+										/*SIDEBAR*/
+#sidebar{
+	overflow: hidden;
+	min-height: 100vh;
+	margin-left: -1rem;
+	/*width: 25%;*/
+	/*justify-self:center;*/
+	background-color: #000;
+	color: #fff;
+
+}
+#logo{
+	width: 25%;
+	height: auto;
+	padding-top: 1rem;
+	margin-left: 30%;
+}
+#option{
+
+}
+.list-item{
+	list-style-type: none;
+	margin: 2rem 0rem;
+}
+.list-item button{
+	background-color: transparent;
+	color: #bbb;
+	font-family: inherit;
+	border-style: none;
+	font-size: 1.3rem;
+}
+.list-item button:focus{
+	outline: none;
+}
+.list-item button:hover{
+	cursor: pointer;
+	transform: scaleX(1.2);
+}
+
+										/*MAINBAR*/
+.mainbar{
+	overflow: auto;
+	height: auto;
+	background-color: #ecf4f3;
+	margin-right: -10px;
+	display: grid;
+}
+#user-detail{
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 20% 20% 20%;
+	justify-items:center;
+	align-items: center;
+	font-size: 1.3rem;
+}
+#user-request{
+	grid-template-columns: 100%;
+	grid-template-rows: 100%;
+	justify-items:center;
+	padding-top: 5rem;
+	align-items: start;
+}
+#user-request input{
+	margin-right:  5rem;
+	font-size: 1.2rem;
+	border-radius: 10px;
+	padding:5px 10px;
+}
+#user-request input:focus{
+	outline: none
+}
+#submit{
+	font-size: 1.3rem;
+	background-color: #fff;
+	color: #000;
+	border-radius: 10px;
+	margin-top: 2rem;
+	margin-left: 32%;
+}
+#submit:focus{
+	outline: none;
+
+}
+#submit:hover{
+	transform: scale(1.5);
+	background-color: transparent;
+	cursor: pointer;
+}
