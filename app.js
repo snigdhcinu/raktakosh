@@ -335,9 +335,13 @@ app.route('/logout')
 
 
 
+let port = process.env.PORT;
+if(port == null || port == ""){
+	port = 8000;
+}
 
-app.listen('8000',(req,res) =>{
-	console.log('server online on port 8000')
+app.listen(port,(req,res) =>{
+	console.log(`server online on port ${port}`)
 })
 
 
