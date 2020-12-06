@@ -58,6 +58,25 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User',userSchema)
 
+// Requests model and schema
+
+const reqSchema = new mongoose.Schema({
+	name:String,
+	userId:String,
+	bgrp:String,
+	address:String,
+	city:String,
+	state:String,
+	phno:Number,
+	requested:{
+		bgreq:String,
+		units:Number
+	}
+
+})
+
+const Request = mongoose.model('Request',reqSchema)
+
 let isAuthorizedHospital = false;
 let isAuthorizedRequestee = false;
 let uid;
@@ -200,10 +219,15 @@ app.route('/login')
 
 app.route('/:visitor/home')
 	.get(function(req,res){
+		username = req.params.visitor;
 		if(isAuthorizedHospital == true){
 			// An authorized Hospital
 			// use uid to identify the document.
-			res.send('Welcoming Hospital -'+' '+req.params.visitor)
+			// res.send('Welcoming Hospital -'+' '+req.params.visitor)
+
+			Hospital.findById(uid,(err,hospital) =>{
+				res.render('hospitalDashboard',{result:hospital})
+			})
 		}
 		if(isAuthorizedRequestee == true){	
 			// An authorized Individual
@@ -216,7 +240,7 @@ app.route('/:visitor/home')
 			})
 
 		}
-		else{
+		if(isAuthorizedRequestee == false && isAuthorizedHospital == false){
 			console.log("Sorry couldn't recognize you!!")
 			res.redirect('/login')
 		}
@@ -225,10 +249,39 @@ app.route('/:visitor/home')
 	.post(function(req,res){
 		// update user request
 		// update gloabl requests	
-		User.findById(uid,(err,user)=>{
-			user.requested.bgreq = req.body.bgreq ;
-			user.requested.units = req.body.units ;
-		})
+		
+		if(isAuthorizedRequestee == true){
+
+			User.findById(uid,(err,user)=>{
+						user.requested.bgreq = req.body.bgreq ;
+						user.requested.units = req.body.units ;
+						isAuthorizedRequestee = true;
+						isAuthorizedHospital = false;
+						user.save();
+		
+						let newRequest = new Request({
+							name:user.name,
+							userId:uid,
+							bgrp:user.bgrp,
+							address:user.address,
+							city:user.city,
+							state:user.state,
+							phno:user.phno,
+							requested:{
+								bgreq:user.requested.bgreq,
+								units:user.requested.units
+							}
+		
+						})
+						newRequest.save();
+		
+					res.redirect(`/${user.name}/home`)
+				})
+		}
+		if(isAuthorizedHospital == true){
+
+		}
+
 	})
 
 app.route('/logout')

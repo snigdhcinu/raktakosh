@@ -25,6 +25,12 @@
 			<p id="address">Address :- <%= result.address%></p>
 			<p id="city">City :- <%= result.city%></p>
 			<p id="state">State :- <%= result.state%></p>
+			<% if(result.requested.bgreq != 'null'){ %>
+				<p id="intel">Latest request for <b><%= result.requested.units%>units</b>  of <b><%= result.requested.bgreq%></b> blood .</p>
+
+			<%}else{%>
+			<p id="intel">No latest request on Pending so far!!</p>
+			<%}%>
 		</div>
 
 		<div class="mainbar" id="user-request">
