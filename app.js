@@ -226,8 +226,11 @@ app.route('/:visitor/home')
 			// res.send('Welcoming Hospital -'+' '+req.params.visitor)
 
 			Hospital.findById(uid,(err,hospital) =>{
-				res.render('hospitalDashboard',{result:hospital})
+				Request.find((err,totalRequests)=>{
+					res.render('hospitalDashboard',{result:hospital,requests:totalRequests})
+				})
 			})
+		
 		}
 		if(isAuthorizedRequestee == true){	
 			// An authorized Individual
@@ -236,10 +239,11 @@ app.route('/:visitor/home')
 
 			// let	user = req.params.visitor;
 			User.findById(uid,(err,user) =>{
-				res.render('userDashboard',{result:user})
-			})
-
+					res.render('userDashboard',{result:user})
+				})
+			
 		}
+
 		if(isAuthorizedRequestee == false && isAuthorizedHospital == false){
 			console.log("Sorry couldn't recognize you!!")
 			res.redirect('/login')
@@ -279,6 +283,21 @@ app.route('/:visitor/home')
 				})
 		}
 		if(isAuthorizedHospital == true){
+			username = req.params.visitor;
+			// updating bank storage
+			Hospital.findById(uid,(err,hospital)=>{
+							hospital.avail.Apos=req.body.apu,
+							hospital.avail.Aneg=req.body.anu,
+							hospital.avail.Bpos=req.body.bpu,
+							hospital.avail.Bneg=req.body.bnu,
+							hospital.avail.Opos=req.body.opu,
+							hospital.avail.Oneg=req.body.onu,
+							hospital.avail.ABpos=req.body.abpu,
+							hospital.avail.ABneg=req.body.abnu
+
+							hospital.save();
+							res.redirect(`/${username}/home`)
+			})
 
 		}
 
@@ -294,16 +313,7 @@ app.route('/logout')
 
 	})
 
-app.route('/hospital/:hospital')
-	.get((req,res)=>{
-		let hospital = req.params.hospital;
-		// Hospital.findById(uid,(err,hospital) =>{
-			res.render('hospitalDashboard',{result:hospital})
-		// })
-	})
-	.post((req,res) =>{
 
-	})
 
 
 app.listen('8000',(req,res) =>{

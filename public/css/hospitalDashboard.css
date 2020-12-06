@@ -2,7 +2,7 @@ body{
 	min-height: 100vh;
 	/*display: flex;*/
 	/*flex-direction: column;*/
-	background-color: #d0e8f2;
+	background-color: #adb36e;
 	font-family: cursive;
 }
 #header{
@@ -47,7 +47,7 @@ body{
 #container{
 	display: grid;
 	height: 100%;
-	grid-template-columns: 25% 75%;
+	grid-template-columns: 20% 80%;
 	grid-template-rows:100%;
 }
 
@@ -98,28 +98,41 @@ body{
 	margin-right: -10px;
 	display: grid;
 }
-#user-detail{
+#hospital-detail{
 	grid-template-columns: 50% 50%;
 	grid-template-rows: 20% 20% 20%;
 	justify-items:center;
 	align-items: center;
 	font-size: 1.3rem;
 }
-#user-request{
+#update-records{
 	grid-template-columns: 100%;
 	grid-template-rows: 100%;
 	justify-items:center;
 	padding-top: 5rem;
 	align-items: start;
 }
-#user-request input{
+#update-records input{
 	margin-right:  5rem;
 	font-size: 1.2rem;
 	border-radius: 10px;
 	padding:5px 10px;
 }
-#user-request input:focus{
+#update-records input:focus{
 	outline: none
+}
+#available-blood{
+	border-style: solid;
+	border-color: gray;
+	border-collapse: separate;
+	width: 80%;
+	margin-top: -8rem;
+	font-size: 1.3rem;
+	margin-bottom: 2rem;
+}
+#available-blood td{
+	border-style: solid; 
+	border-color: gray;
 }
 #submit{
 	font-size: 1.3rem;
@@ -137,4 +150,16 @@ body{
 	transform: scale(1.5);
 	background-color: transparent;
 	cursor: pointer;
+}
+
+#all-requests{
+	border-style: solid;
+	border-color: gray;
+	border-collapse: separate;
+	font-size: 1.3rem;
+	margin-top: 5rem;
+}
+#all-requests td{
+	border-style: solid;
+	border-color: gray;
 }

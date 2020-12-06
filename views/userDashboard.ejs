@@ -22,11 +22,12 @@
 			<p id="name">Name :- <%= result.name%></p>
 			<p id="bgrp">Blood Group :- <%= result.bgrp%></p>
 			<p id="gender">Gender :- <%= result.gndr%></p>
+			<p id="phno">Phone Number :- <%= result.phno%></p>
 			<p id="address">Address :- <%= result.address%></p>
 			<p id="city">City :- <%= result.city%></p>
 			<p id="state">State :- <%= result.state%></p>
 			<% if(result.requested.bgreq != 'null'){ %>
-				<p id="intel">Latest request for <b><%= result.requested.units%>units</b>  of <b><%= result.requested.bgreq%></b> blood .</p>
+				<p id="intel">Latest request for <b><%= result.requested.units%>-units</b>  of <b><%= result.requested.bgreq%></b> blood .</p>
 
 			<%}else{%>
 			<p id="intel">No latest request on Pending so far!!</p>
@@ -46,7 +47,7 @@
 					<option value="AB +ve">
 					<option value="AB -ve">
 				</datalist>
-				<input type="numebr" name="units" placeholder="Enter required units" required autocomplete="off"><br><br>
+				<input type="number" name="units" placeholder="Enter required units" required autocomplete="off"><br><br>
 				<button id="submit" type="submit">Make Request</button>
 			</form>
 		</div>

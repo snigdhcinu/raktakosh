@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title><%= result.name%></title>
-	<link rel="stylesheet" type="text/css" href="/css/userDashboard.css">
+	<link rel="stylesheet" type="text/css" href="/css/hospitalDashboard.css">
 </head>
 <body>
 	<div id="header">
@@ -13,45 +13,130 @@
 		<div id="sidebar"> 
 			<a id="homepage" href="/"><img id="logo" src="/images/favicon.png"></a>
 			<ul id="options">
-				<li class="list-item"><button class="btn">My Profile</button></li>
-				<li class="list-item"><button class="btn">Make Request</button></li>
+				<li class="list-item"><button class="btn">Hospital Profile</button></li>
+				<li class="list-item"><button class="btn">View Bank Storage</button></li>
+				<li class="list-item"><button class="btn">View Requests</button></li>
+
 			</ul>
 		</div>
 
-		<div class="mainbar" id="user-detail">
+		<div class="mainbar" id="hospital-detail">
 			<p id="name">Name :- <%= result.name%></p>
-			<p id="bgrp">Blood Group :- <%= result.bgrp%></p>
-			<p id="gender">Gender :- <%= result.gndr%></p>
+			<p id="id">Hospital ID :- <%= result.id%></p>
+			<p id="phno">Hospital Contact Number :- <%= result.phno%></p>
 			<p id="address">Address :- <%= result.address%></p>
 			<p id="city">City :- <%= result.city%></p>
 			<p id="state">State :- <%= result.state%></p>
-			<% if(result.requested.bgreq != 'null'){ %>
-				<p id="intel">Latest request for <b><%= result.requested.units%>units</b>  of <b><%= result.requested.bgreq%></b> blood .</p>
-
-			<%}else{%>
-			<p id="intel">No latest request on Pending so far!!</p>
-			<%}%>
 		</div>
 
-		<div class="mainbar" id="user-request">
+		<div class="mainbar" id="update-records">
 			<form action="/<%= result%>/home" method='post'>
-				<input type="text" name="bgreq" list="bld-grps" placeholder='Select blood group' required autocomplete="off">
-				<datalist id="bld-grps">
-					<option value="A +ve">
-					<option value="A -ve">	
-					<option value="B +ve">
-					<option value="B -ve">
-					<option value="O +ve">
-					<option value="O -ve">
-					<option value="AB +ve">
-					<option value="AB -ve">
-				</datalist>
-				<input type="numebr" name="units" placeholder="Enter required units" required autocomplete="off"><br><br>
-				<button id="submit" type="submit">Make Request</button>
+				
+				<input type="text" name="ap" placeholder='blood group' value="A +ve" required autocomplete="off">
+				<input type="number" name="apu" placeholder="Enter available units" required autocomplete="off"><br><br>
+
+				<input type="text" name="an" placeholder='blood group' value="A -ve" required autocomplete="off">
+				<input type="number" name="anu" placeholder="Enter available units" required autocomplete="off"><br><br>
+
+				<input type="text" name="bp" placeholder='blood group' value="B +ve" required autocomplete="off">
+				<input type="number" name="bpu" placeholder="Enter available units" required autocomplete="off"><br><br>
+
+				<input type="text" name="bn" placeholder='blood group' value="B -ve" required autocomplete="off">
+				<input type="number" name="bnu" placeholder="Enter available units" required autocomplete="off"><br><br>
+
+				<input type="text" name="op" placeholder='blood group' value="O +ve" required autocomplete="off">
+				<input type="number" name="opu" placeholder="Enter available units" required autocomplete="off"><br><br>
+
+				<input type="text" name="on" placeholder='blood group' value="O -ve" required autocomplete="off">
+				<input type="number" name="onu" placeholder="Enter available units" required autocomplete="off"><br><br>
+
+				<input type="text" name="abp" placeholder='blood group' value="AB +ve" required autocomplete="off">
+				<input type="number" name="abpu" placeholder="Enter available units" required autocomplete="off"><br><br>
+
+				<input type="text" name="abn" placeholder='blood group' value="AB -ve" required autocomplete="off">
+				<input type="number" name="abnu" placeholder="Enter available units" required autocomplete="off"><br><br>
+
+
+				<button id="submit" type="submit">Update Records</button>
 			</form>
+
+			<table id="available-blood">
+				<caption>Available Blood in Bank</caption>
+				<tr class="table-heading">
+					<td class="sec1">Blood Group</td>
+					<td class="sec2">Available Units</td>
+				</tr>
+				<tr class="table-heading">
+					<td class="bg">A +ve</td>
+					<td class="bu"><%= result.avail.Apos %></td>
+				</tr>
+				<tr class="table-heading">
+					<td class="bg">A -ve</td>
+					<td class="bu"><%= result.avail.Aneg %></td>
+				</tr>
+				<tr class="table-heading">
+					<td class="bg">B +ve</td>
+					<td class="bu"><%= result.avail.Bpos %></td>
+				</tr>
+				<tr class="table-heading">
+					<td class="bg">B -ve</td>
+					<td class="bu"><%= result.avail.Bneg %></td>
+				</tr>
+				<tr class="table-heading">
+					<td class="bg">O +ve</td>
+					<td class="bu"><%= result.avail.Opos %></td>
+				</tr>
+				<tr class="table-heading">
+					<td class="bg">O -ve</td>
+					<td class="bu"><%= result.avail.Oneg %></td>
+				</tr>
+				<tr class="table-heading">
+					<td class="bg">AB +ve</td>
+					<td class="bu"><%= result.avail.ABpos %></td>
+				</tr>
+				<tr class="table-heading">
+					<td class="bg">AB -ve</td>
+					<td class="bu"><%= result.avail.ABneg %></td>
+				</tr>
+				
+
+
+			</table>
+		</div>
+
+		<div class="mainbar" id="view-requests">
+				<table id="all-requests">
+					<caption>Requests so far </caption>
+				<tr class="table-heading">
+					<td class="sec1">Name</td>
+					<td class="sec2">userId</td>
+					<td class="sec1">User Blood Group</td>
+					<td class="sec2">Address</td>
+					<td class="sec1">City</td>
+					<td class="sec2">State</td>
+					<td class="sec1">Phone Number</td>
+					<td class="sec2">Blood group requested</td>
+					<td class="sec2">Units of blood requested</td>
+				</tr>
+
+				<% for(let i = 0 ; i < requests.length ; i++) {%>
+					<tr class="data-item" >
+						<td class="bgrp"><%= requests[i].name %></td>
+						<td class="bunits"><%= requests[i].userId %></td>
+						<td class="bgrp"><%= requests[i].bgrp %></td>
+						<td class="bunits"><%= requests[i].address %></td>
+						<td class="bgrp"><%= requests[i].city %></td>
+						<td class="bunits"><%= requests[i].state %></td>
+						<td class="bunits"><%= requests[i].phno %></td>
+						<td class="bgrp"><%= requests[i].requested.bgreq %></td>
+						<td class="bgrp"><%= requests[i].requested.units %></td>
+					</tr>
+				<%}%>
+
+			</table>
 		</div>
 	</div>
 
-<script type="text/javascript" src="/js/userDashboard.js"></script>
+<script type="text/javascript" src="/js/hospitalDashboard.js"></script>
 </body>
 </html>
