@@ -4,6 +4,7 @@ const https = require('https')
 const app = express();
 const ejs = require('ejs');
 const mongoose = require('mongoose')
+require('dotenv').config();
 // const cookieSession = require('cookie-session')
 
 
@@ -11,8 +12,14 @@ const mongoose = require('mongoose')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.set('view engine','ejs')
 app.use(express.static('public'));
-mongoose.connect('mongodb://localhost:27017/bbankDB',
+// mongoose.connect('mongodb://localhost:27017/bbankDB',
+// 	{useNewUrlParser:true,useUnifiedTopology:true})
+let password = process.env.PASSWORD;
+
+
+mongoose.connect(`mongodb+srv://root:${password}@cluster0.bxeya.mongodb.net/bbankDB?retryWrites=true&w=majority`,
 	{useNewUrlParser:true,useUnifiedTopology:true})
+
 
 // Hospital model & schema
 
@@ -120,7 +127,8 @@ app.route('/signup/hospital')
 					isAuthorizedHospital = true;
 					isAuthorizedRequestee = false;
 					uname = req.body.name;
-					res.redirect(`/${req.body.name}/Home`)
+					// res.redirect(`/${req.body.name}/Home`)
+					res.redirect('/login')
 				}
 				else{
 					res.send('Already registered, try to login');

@@ -158,8 +158,8 @@ body{
 	border-collapse: separate;
 	font-size: 1.3rem;
 	margin-top: 5rem;
-	margin-left: -3.5rem;
-	transform: scale(0.9);
+	margin-left: -5rem;
+	transform: scale(0.8);
 }
 #all-requests td{
 	border-style: solid;
