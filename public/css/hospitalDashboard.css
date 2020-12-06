@@ -158,8 +158,21 @@ body{
 	border-collapse: separate;
 	font-size: 1.3rem;
 	margin-top: 5rem;
+	margin-left: -3.5rem;
+	transform: scale(0.9);
 }
 #all-requests td{
 	border-style: solid;
 	border-color: gray;
+}
+.del-data{
+
+}
+.del-btn{
+	background-color: #c05555;
+	color: #fff;
+}
+.del-btn:hover{
+	transform: scale(1.2);
+	cursor:pointer;
 }

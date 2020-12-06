@@ -164,7 +164,6 @@ app.route('/signup/requestee')
 					newUser.save();
 					isAuthorizedRequestee = true;
 					isAuthorizedHospital = false;
-					uid = req.body.pwd;
 					res.redirect(`/${req.body.name}/Home`)
 				}
 			}
@@ -301,6 +300,19 @@ app.route('/:visitor/home')
 
 		}
 
+	})
+
+app.route('/requests/:reqId/delete')
+	.get((req,res)=>{
+		let reqId = req.params.reqId;
+		Request.deleteOne({_id:reqId},(req,res)=>{
+			if(err){
+				res.send(err)
+			}else{
+				isAuthorizedHospital = true;
+				res.redirect(`/${username}/home`);
+			}
+		})
 	})
 
 app.route('/logout')

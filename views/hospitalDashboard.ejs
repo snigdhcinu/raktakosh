@@ -117,6 +117,7 @@
 					<td class="sec1">Phone Number</td>
 					<td class="sec2">Blood group requested</td>
 					<td class="sec2">Units of blood requested</td>
+					<td>Remove Requests</td>
 				</tr>
 
 				<% for(let i = 0 ; i < requests.length ; i++) {%>
@@ -130,6 +131,7 @@
 						<td class="bunits"><%= requests[i].phno %></td>
 						<td class="bgrp"><%= requests[i].requested.bgreq %></td>
 						<td class="bgrp"><%= requests[i].requested.units %></td>
+						<td class="del-data"><a href="/requests/<%= requests[i]._id %>/delete"><button class="del-btn">Delete Request</button></a></td>
 					</tr>
 				<%}%>
 
